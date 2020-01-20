@@ -24,11 +24,12 @@
             
             $name = basename($_FILES['monfichier']['name']);
             move_uploaded_file($tmp_name, 'upload/'. $name);
-            echo "L'envoie a bien ete effectué!";
+            echo "L'envoie a bien ete effectué!<br />";
+            echo '<img src="upload/'.$name.'" alt="" />';
+            
           }
+        }
       }
-    }
-  ?>
-   
+      ?>
 </body>
 </html>
