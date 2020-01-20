@@ -1,3 +1,11 @@
+<?php
+  session_start();
+  $_SESSION['lastname'] = 'Regis';
+  $_SESSION['firstname'] = 'Dumont';
+  $_SESSION['age'] = 45;
+
+  ?>
+
 <!doctype html>
 <html lang="fr">
 <head>
@@ -7,8 +15,11 @@
   <script src="script.js"></script>
 </head>
 <body>
-    <a href="bonjour.php?nom=Dupont&amp;prenom=Jean&amp;repete=4">Dis-moi bonjour !</a><br/>  
-    <a href="formulaire.php">Formulaire!</a><br />
-    <a href="upload.php">Upload!</a><br />
+
+    <p>Bonjour, <?php echo $_SESSION['lastname']?></p>
+    <a href="envurl/bonjour.php?nom=Dupont&amp;prenom=Jean&amp;repete=4">Dis-moi bonjour !</a><br/>  
+    <a href="formulaire/formulaire.php">Formulaire!</a><br />
+    <a href="uploadfile/upload.php">Upload!</a><br />
+    <a href="codeNasa/formulaire.php">TpNasa!</a><br />
 </body>
 </html>

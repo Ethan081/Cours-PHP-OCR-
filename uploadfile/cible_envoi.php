@@ -25,8 +25,9 @@
             
             $name = basename($_FILES['monfichier']['name']);
             // move_uploaded_file()->Si tout est bon, on accepte le fichier
-            move_uploaded_file($tmp_name, 'upload/'. $name);
+            move_uploaded_file($tmp_name, '../upload/'. $name);
             echo "L'envoie a bien ete effectué!<br />";
+            echo "Tu t'appelles ".$_COOKIE['lastname'] .".<br />";
             echo '<img src="upload/'.$name.'" alt="" />';
             
           }

@@ -1,3 +1,4 @@
+<?php session_start();?>
 <!doctype html>
 <html lang="fr">
 <head>
@@ -7,7 +8,9 @@
   <script src="script.js"></script>
 </head>
 <body>
+    <p>Bonjour <?php echo $_SESSION['lastname'] .' '. $_SESSION['firstname']; ?></p>
     <?php 
+    // print_r($_GET);
     if (isset($_GET['prenom']) AND isset($_GET['nom']) AND isset($_GET['repete'])) {
 
         $_GET['repete'] = (int)$_GET['repete'];

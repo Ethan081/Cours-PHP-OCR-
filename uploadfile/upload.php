@@ -1,3 +1,4 @@
+<?php setcookie('lastname', 'Anne', time()+3600, null, null, false, true);?>
 <!doctype html>
 <html lang="fr">
 <head>
