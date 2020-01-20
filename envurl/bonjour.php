@@ -1,4 +1,4 @@
-<?php session_start();?>
+<?php session_start();?>// On démarre la session
 <!doctype html>
 <html lang="fr">
 <head>

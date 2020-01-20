@@ -1,6 +1,6 @@
 <?php
-  session_start();
-  $_SESSION['lastname'] = 'Regis';
+  session_start();// On démarre la session(qui est un array)
+  $_SESSION['lastname'] = 'Regis';// On assigne des variables a la superGlobal session
   $_SESSION['firstname'] = 'Dumont';
   $_SESSION['age'] = 45;
 

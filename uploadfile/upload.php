@@ -1,4 +1,4 @@
-<?php setcookie('lastname', 'Anne', time()+3600, null, null, false, true);?>
+<?php setcookie('lastname', 'Anne', time()+3600, null, null, false, true);?>// On écrit un cookie
 <!doctype html>
 <html lang="fr">
 <head>
