@@ -3,8 +3,7 @@
   $_SESSION['lastname'] = 'Regis';// On assigne des variables a la superGlobal session
   $_SESSION['firstname'] = 'Dumont';
   $_SESSION['age'] = 45;
-
-  ?>
+?>
 
 <!doctype html>
 <html lang="fr">
@@ -15,12 +14,12 @@
   <script src="script.js"></script>
 </head>
 <body>
-
     <p>Bonjour, <?php echo $_SESSION['lastname']?></p>
     <a href="envurl/bonjour.php?nom=Dupont&amp;prenom=Jean&amp;repete=4">Dis-moi bonjour !</a><br/>  
     <a href="formulaire/formulaire.php">Formulaire!</a><br />
     <a href="uploadfile/upload.php">Upload!</a><br />
     <a href="codeNasa/formulaire.php">TpNasa!</a><br />
     <a href="rwfile/readwritefile.php">Read Write File!</a><br />
+    <a href="database/videogame.php">DB Video Game!</a><br />
 </body>
 </html>
