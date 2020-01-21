@@ -21,5 +21,6 @@
     <a href="formulaire/formulaire.php">Formulaire!</a><br />
     <a href="uploadfile/upload.php">Upload!</a><br />
     <a href="codeNasa/formulaire.php">TpNasa!</a><br />
+    <a href="rwfile/readwritefile.php">Read Write File!</a><br />
 </body>
 </html>
