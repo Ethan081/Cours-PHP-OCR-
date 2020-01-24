@@ -14,7 +14,12 @@
     <script src="script.js"></script>
   </head>
   <body>
-      <p>Bonjour, <?php echo $_SESSION['lastname']?></p>
+      <form action="minichat_post.php" method="post">
+        <label for="name">Pseudo: </label>
+        <input type="text" name="name" placeholder="votre pseudo"><br />
+        <label for="password">Mot de Passe: </label>
+        <input type="password" placeholder="votre mot de pass">
+      </form>
      
   </body>
 </html>
