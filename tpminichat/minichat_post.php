@@ -15,12 +15,6 @@
   </head>
   <body>
       <p>Bonjour, <?php echo $_SESSION['lastname']?></p>
-      <a href="envurl/bonjour.php?nom=Dupont&amp;prenom=Jean&amp;repete=4">Dis-moi bonjour !</a><br/>  
-      <a href="formulaire/formulaire.php">Formulaire!</a><br />
-      <a href="uploadfile/upload.php">Upload!</a><br />
-      <a href="codeNasa/formulaire.php">TpNasa!</a><br />
-      <a href="rwfile/readwritefile.php">Read Write File!</a><br />
-      <a href="database/videogame.php">DB Video Game!</a><br />
-      <a href="tpminichat/minichat.php">TP mini chat!</a><br />
+     
   </body>
 </html>
