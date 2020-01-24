@@ -14,7 +14,28 @@
     <script src="script.js"></script>
   </head>
   <body>
-      <p>Bonjour, <?php echo $_SESSION['lastname']?></p>
+    <?php
+        try{
+            $bdd = new PDO('mysql:host=localhost;dbname=test;charset=utf8', 'root', 'root');
+
+        }catch(Exception $e){
+
+            die('Error:' . $e->getMessage());
+        }
+        var_dump($_POST);
+        $name = $_POST['name'];
+        $message = $_POST['message'];
+        if (isset($name) and isset($message)) {
+             $bdd->exec("INSERT INTO minichat VALUES ('$name', '$message')");
+            }else{
+                echo 'il faut renseigner le nom et le prenom';
+            }
+            
+            // $bdd->closeCursor();
+        header('Location: minichat.php');
+        $bdd = null;
+    ?>
+      
      
   </body>
 </html>

@@ -14,12 +14,32 @@
     <script src="script.js"></script>
   </head>
   <body>
+    <?php 
+      try
+      {
+        $bdd = new PDO('mysql:host=localhost;dbname=test;charset=utf8', 'root', 'root');
+      }catch(Exception $e )
+      {
+        die('Error:' . $e->getMessage());
+
+      }    
+    ?>
       <form action="minichat_post.php" method="post">
+
         <label for="name">Pseudo: </label>
-        <input type="text" name="name" placeholder="votre pseudo"><br />
-        <label for="password">Mot de Passe: </label>
-        <input type="password" placeholder="votre mot de pass">
+        <input type="text" name="name" placeholder="votre pseudo"><br>
+
+        <label for="message">Message: </label>
+        <input type="text" name=message placeholder="votre message ici"><br>
+
+        <input type="submit" value="Submit">
       </form>
+
+
+
+      <p>
+      //boucle qui recupaire les infos de la db et les affiches.
+    
      
   </body>
 </html>
