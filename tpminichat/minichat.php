@@ -1,10 +1,3 @@
-<?php
-  session_start();// On démarre la session(qui est un array)
-  $_SESSION['lastname'] = 'Regis';// On assigne des variables a la superGlobal session
-  $_SESSION['firstname'] = 'Dumont';
-  $_SESSION['age'] = 45;
-?>
-
 <!doctype html>
 <html lang="fr">
   <head>
@@ -14,6 +7,18 @@
     <script src="script.js"></script>
   </head>
   <body>
+    <form action="minichat_post.php" method="post">
+
+      <label for="name">Pseudo: </label>
+      
+      <input type="text" name="name" placeholder="votre pseudo" value="<?php echo $_COOKIE['pseudo']; ?>"><br>
+
+      <label for="message">Message: </label>
+      <input type="text" name=message placeholder="votre message ici"><br>
+
+      <input type="submit" value="Submit">
+    </form>
+      <!-- connection a la DB -->
     <?php 
       try
       {
@@ -23,23 +28,27 @@
         die('Error:' . $e->getMessage());
 
       }    
+    ?> 
+    <!-- contenue recuperer de la base de donnee -->
+    <?php 
+      $reponse = $bdd->query('SELECT name, message FROM minichat ORDER BY ID DESC LIMIT 0, 10');
     ?>
-      <form action="minichat_post.php" method="post">
-
-        <label for="name">Pseudo: </label>
-        <input type="text" name="name" placeholder="votre pseudo"><br>
-
-        <label for="message">Message: </label>
-        <input type="text" name=message placeholder="votre message ici"><br>
-
-        <input type="submit" value="Submit">
-      </form>
-
-
-
+    <!-- Boucle d'affichage des messages et des noms -->
+    <?php 
+      while($donnees = $reponse->fetch())
+      {
+    ?>
       <p>
-      //boucle qui recupaire les infos de la db et les affiches.
-    
-     
+        <strong><?php echo htmlspecialchars($donnees['name']);?> : </strong><?php echo htmlspecialchars($donnees['message']); ?><br /><br />
+      </p>
+        
+    <?php
+      }
+      $reponse->closeCursor();
+    ?>
+    <form action="minichat.php">
+      <input type="submit" value="Rafraîchir la page">
+    </form>
+  
   </body>
 </html>

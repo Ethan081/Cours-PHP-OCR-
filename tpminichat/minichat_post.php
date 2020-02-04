@@ -1,10 +1,3 @@
-<?php
-  session_start();// On démarre la session(qui est un array)
-  $_SESSION['lastname'] = 'Regis';// On assigne des variables a la superGlobal session
-  $_SESSION['firstname'] = 'Dumont';
-  $_SESSION['age'] = 45;
-?>
-
 <!doctype html>
 <html lang="fr">
   <head>
@@ -15,6 +8,7 @@
   </head>
   <body>
     <?php
+    // connection a la base de donnee
         try{
             $bdd = new PDO('mysql:host=localhost;dbname=test;charset=utf8', 'root', 'root');
 
@@ -22,18 +16,15 @@
 
             die('Error:' . $e->getMessage());
         }
-        var_dump($_POST);
-        $name = $_POST['name'];
-        $message = $_POST['message'];
-        if (isset($name) and isset($message)) {
-             $bdd->exec("INSERT INTO minichat VALUES ('$name', '$message')");
-            }else{
-                echo 'il faut renseigner le nom et le prenom';
-            }
-            
-            // $bdd->closeCursor();
+        // insertion du message a l aide d une requete .
+          $req = $bdd->prepare('INSERT INTO minichat(name, message) VALUES(?, ?)');
+          $req->execute(array($_POST['name'], $_POST['message']));
+
+        // creation du setcookie
+        setcookie('pseudo', $_POST['name'], time()+60);
+        //  requete qui redirige vers minichat.php comme ceci:
         header('Location: minichat.php');
-        $bdd = null;
+        
     ?>
       
      
