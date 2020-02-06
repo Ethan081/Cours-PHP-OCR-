@@ -10,16 +10,18 @@
     <a href="listedesjeux.php?possesseur=Dupont&amp;prix_max=20">Liste des Jeux PC</a><br />
     <a href="ajouterdesjeux.php?">Ajouter des Jeux</a><br />
     <?php
-    try
-    {
-        // On se connecte à MySQL
-        $bdd = new PDO('mysql:host=localhost;dbname=test;charset=utf8', 'root', 'root');
-    }
-    catch(Exception $e)
-    {
-        // En cas d'erreur, on affiche un message et on arrête tout
-            die('Erreur : '.$e->getMessage());
-    }
+    require_once('../librairies/database.php');
+    $bdd = getPdo();
+    // try
+    // {
+    //     // On se connecte à MySQL
+    //     $bdd = new PDO('mysql:host=localhost;dbname=test;charset=utf8', 'root', 'root');
+    // }
+    // catch(Exception $e)
+    // {
+    //     // En cas d'erreur, on affiche un message et on arrête tout
+    //         die('Erreur : '.$e->getMessage());
+    // }
 
     // Si tout va bien, on peut continuer
 

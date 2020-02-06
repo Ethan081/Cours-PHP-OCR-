@@ -22,5 +22,6 @@
       <a href="rwfile/readwritefile.php">Read Write File!</a><br />
       <a href="database/videogame.php">DB Video Game!</a><br />
       <a href="tpminichat/minichat.php">TP mini chat!</a><br />
+      <a href="blog/index.php">Blog!</a><br />
   </body>
 </html>
