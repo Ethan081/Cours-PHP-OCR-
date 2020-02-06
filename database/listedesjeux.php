@@ -18,12 +18,13 @@
             die('Erreur : '.$e->getMessage());
         }
 
-        $request = $bdd->query('SELECT nom ,prix FROM jeux_video WHERE console = \'PC\'');
-
-        while($donnees = $request->fetch()){ 
-            echo 'Nom ' . '<strong>'. $donnees['nom']. '</strong>' . ' Prix '. $donnees['prix'] . ' $.' .'<br />';
+        $request = $bdd->query('SELECT UPPER(nom) AS upper_name,prix FROM jeux_video WHERE console = \'PC\'');
+        
+        while($donnees = $request->fetch()){         
+            echo 'Nom ' . '<strong>'. $donnees['upper_name']. '</strong>' . ' Prix '. $donnees['prix'] . ' $.' .'<br />';
         }
         $reponse->closeCursor();
+
 
 
         // $req = $bdd->prepare('SELECT nom, prix FROM jeux_video WHERE possesseur = ?  AND prix <= ? ORDER BY prix');
@@ -39,5 +40,14 @@
         // $req->closeCursor();
     
     ?>
+    <?php
+$reponse = $bdd->query('SELECT AVG(prix) AS prix_moyen FROM jeux_video');
+
+$donnees = $reponse->fetch();
+echo $donnees['prix_moyen'];
+
+$reponse->closeCursor();
+
+?>
 </body>
 </html>
