@@ -16,26 +16,21 @@
     $pdo = getPdo();
 
     // request to load last 5 commenteries
-    $reponse = $pdo->query('SELECT * FROM billets ORDER BY date_creation DESC LIMIT 0, 5');
+    $reponse = $pdo->query('SELECT id, titre, contenu, DATE_FORMAT(date_creation, "%d/%m/%Y") AS date FROM billets ORDER BY date DESC LIMIT 0, 5');
 
     while ($donnees = $reponse->fetch()) 
     {
     ?>
         <div class="news">
-            <h3><?php echo $donnees['titre'], $donnees['date_create']; ?></h3> 
+            <h3><?php echo $donnees['titre']. ". Article publier le : " .$donnees['date']; ?></h3> 
             <p>
                 <?php echo$donnees['contenu']?><br />
-                <a href="commentaires.php/">Commentaires</a>
+                <a href="commentaires.php?billet=<?php echo $donnees['id'] ?>">Commentaires</a>
             </p>
         </div>
     <?php
     }
-
+    $reponse->closeCursor();
     ?>
-
-    <div class="news">
-        <h2>Hello</h2>
-        <p>Les gens sont cool!</p>
-    </div>
   </body>
 </html>
