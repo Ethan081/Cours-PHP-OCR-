@@ -14,9 +14,11 @@
         require_once('../librairies/database.php');
         // Connection a la base de donnee
         $pdo = getPdo();
+        //Recuperation du billet
         $reponse = $pdo->prepare('SELECT id, titre, contenu, DATE_FORMAT(date_creation, "%d/%m/%Y") AS date FROM billets WHERE id = ?');
         $reponse->execute(array($_GET['billet']));
         $donnees = $reponse->fetch();
+        
     ?>
     <div class="news">
         <h3><?php echo htmlspecialchars($donnees['titre']). ". Article publier le : " .$donnees['date']; ?></h3> 
